@@ -4,10 +4,11 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.InstallIn
-import edu.itvo.salesapp.data.repository.InMemoryProductRepository
+
 import edu.itvo.salesapp.data.repository.RoomProductRepository
 import edu.itvo.salesapp.domain.repository.ProductRepository
-import jakarta.inject.Singleton
+import javax.inject.Singleton
+
 
 
 @Module

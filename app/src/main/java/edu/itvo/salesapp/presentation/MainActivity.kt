@@ -9,7 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
-import edu.itvo.sales.presentation.product.create.CreateProductScreen
+import edu.itvo.salesapp.presentation.product.create.CreateProductScreen
+
 import edu.itvo.salesapp.presentation.ui.theme.SalesAppTheme
 
 @AndroidEntryPoint

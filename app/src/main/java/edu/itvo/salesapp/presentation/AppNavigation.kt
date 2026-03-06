@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import edu.itvo.sales.presentation.product.create.CreateProductScreen
+import edu.itvo.salesapp.presentation.product.create.CreateProductScreen
 import edu.itvo.salesapp.presentation.product.list.ListProductScreen
 
 @Composable

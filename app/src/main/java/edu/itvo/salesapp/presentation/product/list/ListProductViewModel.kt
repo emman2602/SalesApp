@@ -3,7 +3,7 @@ package edu.itvo.salesapp.presentation.product.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import edu.itvo.sales.domain.usecase.product.ListProductsUseCase
+import edu.itvo.salesapp.domain.usecase.product.ListProductsUseCase
 import edu.itvo.salesapp.domain.model.Product
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

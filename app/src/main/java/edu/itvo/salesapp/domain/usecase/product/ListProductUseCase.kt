@@ -1,4 +1,4 @@
-package edu.itvo.sales.domain.usecase.product
+package edu.itvo.salesapp.domain.usecase.product
 
 
 import edu.itvo.salesapp.domain.model.Product

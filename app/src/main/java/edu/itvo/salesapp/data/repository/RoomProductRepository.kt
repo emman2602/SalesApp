@@ -5,9 +5,10 @@ import edu.itvo.salesapp.data.mapper.toDomain
 import edu.itvo.salesapp.data.mapper.toEntity
 import edu.itvo.salesapp.domain.model.Product
 import edu.itvo.salesapp.domain.repository.ProductRepository
-import jakarta.inject.Inject
+
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 import kotlin.collections.map
 
 class RoomProductRepository @Inject constructor(

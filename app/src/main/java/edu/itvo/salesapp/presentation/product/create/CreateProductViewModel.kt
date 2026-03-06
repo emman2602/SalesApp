@@ -52,7 +52,8 @@ class CreateProductViewModel @Inject constructor(
             CreateProductUiEvent.SaveClicked ->
                 saveProduct()
 
-            is CreateProductUiEvent.NameChanged -> TODO()
+            is CreateProductUiEvent.NameChanged ->
+                updateState { copy(name = event.value) }
         }
     }
 
@@ -78,8 +79,8 @@ class CreateProductViewModel @Inject constructor(
                     name = currentState.name,
                     description = currentState.description,
                     category = currentState.category,
-                    price = currentState.price.toDouble() ,
-                    stock = currentState.stock.toInt() ,
+                    price = currentState.price.toDoubleOrNull() ?: 0.0,
+                    stock = currentState.stock.toIntOrNull() ?: 0,
                     taxable = currentState.taxable
                 )
 

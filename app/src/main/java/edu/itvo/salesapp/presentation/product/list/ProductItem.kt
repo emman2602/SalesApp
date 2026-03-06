@@ -1,5 +1,6 @@
 package edu.itvo.salesapp.presentation.product.list
 
+import android.R
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,10 +28,14 @@ fun ProductItem(product: Product) {
             modifier = Modifier
                 .padding(16.dp)
         ) {
+            Text(
+                text = product.name,
+                style = MaterialTheme.typography.titleMedium
+            )
 
             Text(
                 text = product.description,
-                style = MaterialTheme.typography.titleMedium
+                style = MaterialTheme.typography.labelSmall
             )
 
             Spacer(modifier = Modifier.height(4.dp))

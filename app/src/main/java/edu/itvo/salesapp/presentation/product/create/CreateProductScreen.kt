@@ -1,4 +1,4 @@
-package edu.itvo.sales.presentation.product.create
+package edu.itvo.salesapp.presentation.product.create
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
