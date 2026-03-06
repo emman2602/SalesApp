@@ -78,8 +78,8 @@ class CreateProductViewModel @Inject constructor(
                     name = currentState.name,
                     description = currentState.description,
                     category = currentState.category,
-                    price = currentState.price ,
-                    stock = currentState.stock ,
+                    price = currentState.price.toDouble() ,
+                    stock = currentState.stock.toInt() ,
                     taxable = currentState.taxable
                 )
 

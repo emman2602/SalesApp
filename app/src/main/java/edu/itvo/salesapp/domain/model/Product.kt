@@ -5,7 +5,7 @@ data class Product(
     val name: String,
     val description: String,
     val category: String,
-    val price: String,
-    val stock: String,
+    val price: Double,
+    val stock: Int,
     val taxable: Boolean = true
 )

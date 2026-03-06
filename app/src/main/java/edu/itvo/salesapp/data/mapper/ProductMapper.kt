@@ -6,6 +6,7 @@ import edu.itvo.salesapp.domain.model.Product
 fun ProductEntity.toDomain(): Product {
     return Product(
         code,
+        name,
         description,
         category,
         price,
@@ -17,6 +18,7 @@ fun ProductEntity.toDomain(): Product {
 fun Product.toEntity(): ProductEntity {
     return ProductEntity(
         code,
+        name,
         description,
         category,
         price,

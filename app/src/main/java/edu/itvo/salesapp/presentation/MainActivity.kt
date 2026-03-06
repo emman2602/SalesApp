@@ -19,11 +19,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SalesAppTheme {
-                CreateProductScreen (
-                    onNavigateBack = {
-                        finish()
-                    }
-                )
+                AppNavigation()
             }
         }
     }

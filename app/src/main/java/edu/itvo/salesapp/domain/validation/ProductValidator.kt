@@ -11,7 +11,7 @@ class ProductValidator {
             "Code required".takeIf { product.code.isBlank() },
             "Description required".takeIf { product.description.isBlank() },
             "Category required".takeIf { product.category.isBlank() },
-            "Invalid price".takeIf { product.price.toInt() < 0 },
+            "Invalid price".takeIf { product.price.toDouble() < 0 },
             "Invalid Stock".takeIf { product.stock.toInt() <= 0 }
         ).firstOrNull()
             ?.let { ValidationResult.Error(it) }

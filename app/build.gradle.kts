@@ -1,9 +1,12 @@
 plugins {
-    id("com.google.devtools.ksp")
-    id("com.google.dagger.hilt.android")
     alias(libs.plugins.android.application)
-    //alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+    id("com.google.dagger.hilt.android")
+}
+configurations.all {
+    exclude(group = "com.intellij", module = "annotations")
 }
 
 android {
@@ -30,8 +33,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlin {
         compilerOptions {
@@ -67,5 +70,17 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.57.2")
     ksp("com.google.dagger:hilt-android-compiler:2.57.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.3.0")
+    //lifecucle y flow
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
+
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.8.4")
+    ksp("androidx.room:room-compiler:2.8.4")
+
+    //--- Coroutines (Flow)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+
+
 
 }

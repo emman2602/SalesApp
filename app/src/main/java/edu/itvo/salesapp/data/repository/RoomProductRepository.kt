@@ -1,6 +1,7 @@
 package edu.itvo.salesapp.data.repository
 
 import edu.itvo.salesapp.data.local.dao.ProductDao
+import edu.itvo.salesapp.data.mapper.toDomain
 import edu.itvo.salesapp.data.mapper.toEntity
 import edu.itvo.salesapp.domain.model.Product
 import edu.itvo.salesapp.domain.repository.ProductRepository
