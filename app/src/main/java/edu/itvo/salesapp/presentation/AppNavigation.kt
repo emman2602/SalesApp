@@ -18,7 +18,11 @@ fun AppNavigation() {
     ) {
 
         composable("product_list") {
-            ListProductScreen()
+            ListProductScreen(
+                onNavigateToCreate = {
+                    navController.navigate("create_product")
+                }
+            )
         }
 
         composable("create_product") {

@@ -4,8 +4,12 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -28,7 +32,7 @@ import edu.itvo.salesapp.presentation.product.create.CreateProductViewModel
 
 
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+
 
 @Composable
 fun CreateProductScreen(
@@ -60,10 +64,14 @@ fun CreateProductScreen(
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) }
-    ) {
+    ) { innerPadding ->
 
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .padding(innerPadding)
+                .padding(16.dp)
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
         ) {
 
             OutlinedTextField(
@@ -164,7 +172,8 @@ fun CreateProductScreen(
                     viewModel.onEvent(
                         CreateProductUiEvent.SaveClicked
                     )
-                }
+                },
+                modifier = Modifier.fillMaxWidth().padding(top = 16.dp)
             ) {
                 Text("Save")
             }

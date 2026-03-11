@@ -6,6 +6,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.hilt.InstallIn
 
 import edu.itvo.salesapp.data.repository.RoomProductRepository
+import edu.itvo.salesapp.domain.repository.CustomerRepository
 import edu.itvo.salesapp.domain.repository.ProductRepository
 import javax.inject.Singleton
 
@@ -21,4 +22,9 @@ abstract class RepositoryModule {
         repository: RoomProductRepository
     ): ProductRepository
 
+    @Binds
+    @Singleton
+    abstract fun bindCustomerRepository(
+        repository: CustomerRepository
+    ): CustomerRepository
 }
