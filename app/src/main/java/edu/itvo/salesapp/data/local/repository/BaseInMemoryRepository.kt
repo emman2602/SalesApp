@@ -1,4 +1,4 @@
-package edu.itvo.salesapp.data.repository
+package edu.itvo.salesapp.data.local.repository
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

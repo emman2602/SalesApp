@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     id("com.google.dagger.hilt.android")
+    //--- Firebase
+    id("com.google.gms.google-services")
 }
 configurations.all {
     exclude(group = "com.intellij", module = "annotations")
@@ -83,4 +85,9 @@ dependencies {
 
 
 
+//--- Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
+    // -----------------------------------------
 }

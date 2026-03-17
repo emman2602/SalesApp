@@ -1,4 +1,4 @@
-package edu.itvo.salesapp.data.repository
+package edu.itvo.salesapp.data.local.repository
 
 import edu.itvo.salesapp.domain.model.Product
 import edu.itvo.salesapp.domain.repository.ProductRepository

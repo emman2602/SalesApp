@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "666954538659",
+    "project_id": "salesapp-25db7",
+    "storage_bucket": "salesapp-25db7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666954538659:android:07c21cde1087d53a166916",
+        "android_client_info": {
+          "package_name": "edu.itvo.salesapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALLzaM_hTm947M3524rNHyomWrgw00LpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
