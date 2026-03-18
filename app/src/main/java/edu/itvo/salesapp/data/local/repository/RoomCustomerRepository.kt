@@ -17,15 +17,15 @@ class RoomCustomerRepository @Inject constructor(
     }
 
     override suspend fun findCustomerById(idCustomer: String): Customer? {
-        return dao.findByCode(idCustomer)?.toDomain()
+        return dao.findById(idCustomer)?.toDomain()
     }
 
     override suspend fun deleteCustomer(idCustomer: String) {
-        dao.deleteByCode(idCustomer)
+        dao.deleteById(idCustomer)
     }
 
     override  fun getCustomers(): Flow<List<Customer>> {
-        return dao.getProducts()
+        return dao.getCustomers()
             .map { list -> list.map { it.toDomain() } }
     }
 }

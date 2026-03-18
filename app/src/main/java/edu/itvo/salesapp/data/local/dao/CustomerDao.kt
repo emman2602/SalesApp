@@ -10,14 +10,14 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CustomerDao {
     @Query("SELECT * FROM customers")
-    fun getProducts(): Flow<List<CustomerEntity>>
+    fun getCustomers(): Flow<List<CustomerEntity>>
 
     @Query("SELECT * FROM customers WHERE id = :idCustomer")
-    suspend fun findByCode(idCustomer: String): CustomerEntity?
+    suspend fun findById(idCustomer: String): CustomerEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(customer: CustomerEntity)
 
     @Query("DELETE FROM customers WHERE id = :idCustomer")
-    suspend fun deleteByCode(idCustomer: String)
+    suspend fun deleteById(idCustomer: String)
 }

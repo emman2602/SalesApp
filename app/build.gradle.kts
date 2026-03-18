@@ -62,6 +62,8 @@ dependencies {
     implementation(libs.androidx.runtime)
     implementation(libs.androidx.tools.core)
     implementation(libs.androidx.room.compiler)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.ui)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -89,5 +91,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
+
     // -----------------------------------------
+    implementation("androidx.compose.material:material-icons-extended")
 }
