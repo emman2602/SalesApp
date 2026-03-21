@@ -9,7 +9,7 @@ import edu.itvo.salesapp.data.local.entity.ProductEntity
 
 @Database(
     entities = [ProductEntity::class, CustomerEntity::class],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 
