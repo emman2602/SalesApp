@@ -66,14 +66,9 @@ class CreateProductViewModel @Inject constructor(
             sendEffect(CreateProductUiEffect.ShowError("Code required"))
             return
         }
-
-
         viewModelScope.launch {
-
             updateState { copy(isLoading = true) }
-
             try {
-
                 val product = Product(
                     code = currentState.code,
                     name = currentState.name,
@@ -83,26 +78,20 @@ class CreateProductViewModel @Inject constructor(
                     stock = currentState.stock.toIntOrNull() ?: 0,
                     taxable = currentState.taxable
                 )
-
                 createProductUseCase(product)
-
                 sendEffect(CreateProductUiEffect.ShowSuccess("Product created"))
                 sendEffect(CreateProductUiEffect.NavigateBack)
-
             } catch (e: Exception) {
-
                 sendEffect(
                     CreateProductUiEffect.ShowError(
                         e.message ?: "Unknown error"
                     )
                 )
-
             } finally {
                 updateState { copy(isLoading = false) }
             }
         }
     }
-
     private fun sendEffect(effect: CreateProductUiEffect) {
         viewModelScope.launch {
             _effect.send(effect)

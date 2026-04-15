@@ -1,4 +1,4 @@
-package edu.itvo.salesapp.data.remote
+package edu.itvo.salesapp.data.remote.datasource
 
 import com.google.firebase.firestore.FirebaseFirestore
 import edu.itvo.salesapp.domain.model.Product
@@ -9,29 +9,23 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class ProductFirebaseDataSource @Inject constructor() {
-
     private val firestore = FirebaseFirestore.getInstance()
     private val collection = firestore.collection("products")
-
     fun getProducts(): Flow<List<Product>> = callbackFlow {
-
         val listener = collection.addSnapshotListener { snapshot, error ->
 
             if (error != null) {
                 close(error)
                 return@addSnapshotListener
             }
-
             val products = snapshot?.documents?.mapNotNull {
                 it.toObject(Product::class.java)
             } ?: emptyList()
 
             trySend(products)
         }
-
         awaitClose { listener.remove() }
     }
-
     suspend fun findProductByCode(productCode: String): Product? {
         val doc = collection.document(productCode).get().await()
         return doc.toObject(Product::class.java)

@@ -1,4 +1,4 @@
-package edu.itvo.salesapp.data.local.repository
+package edu.itvo.salesapp.data.repository
 
 import kotlinx.coroutines.flow.Flow
 

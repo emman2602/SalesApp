@@ -1,4 +1,4 @@
-package edu.itvo.salesapp.data.local.repository
+package edu.itvo.salesapp.data.repository
 
 import edu.itvo.salesapp.data.local.dao.CustomerDao
 import edu.itvo.salesapp.data.mapper.toDomain

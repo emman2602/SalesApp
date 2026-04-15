@@ -1,4 +1,4 @@
-package edu.itvo.salesapp.data.remote
+package edu.itvo.salesapp.data.remote.datasource
 
 import com.google.firebase.firestore.FirebaseFirestore
 import edu.itvo.salesapp.domain.model.Customer
@@ -9,12 +9,9 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class CustomerFirebaseDataSource @Inject constructor() {
-
     private val firestore = FirebaseFirestore.getInstance()
     private val collection = firestore.collection("customers")
-
     fun getCustomers(): Flow<List<Customer>> = callbackFlow {
-
         val listener = collection.addSnapshotListener { snapshot, error ->
 
             if (error != null) {
@@ -25,10 +22,8 @@ class CustomerFirebaseDataSource @Inject constructor() {
             val customers = snapshot?.documents?.mapNotNull {
                 it.toObject(Customer::class.java)
             } ?: emptyList()
-
             trySend(customers)
         }
-
         awaitClose { listener.remove() }
     }
 

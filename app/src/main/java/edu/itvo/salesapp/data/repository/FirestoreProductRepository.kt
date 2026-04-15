@@ -1,5 +1,6 @@
-package edu.itvo.salesapp.data.remote
+package edu.itvo.salesapp.data.repository
 
+import edu.itvo.salesapp.data.remote.datasource.ProductFirebaseDataSource
 import edu.itvo.salesapp.domain.model.Product
 import edu.itvo.salesapp.domain.repository.ProductRepository
 import kotlinx.coroutines.flow.Flow

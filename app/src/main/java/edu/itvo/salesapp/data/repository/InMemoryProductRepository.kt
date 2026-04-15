@@ -1,4 +1,4 @@
-package edu.itvo.salesapp.data.local.repository
+package edu.itvo.salesapp.data.repository
 
 import edu.itvo.salesapp.domain.model.Product
 import edu.itvo.salesapp.domain.repository.ProductRepository
@@ -10,9 +10,9 @@ import javax.inject.Singleton
 class InMemoryProductRepository @Inject constructor()
     : BaseInMemoryRepository<Product, String>(
     initialData = listOf(
-        Product("P1", "Laptop", "Electronics","Electronics" ,15000.0, 10, true),
-        Product("P2", "Mouse", "Electronics", "Electronics",500.0,10,  true),
-        Product("P3", "Desk", "Furniture","Furniture", 3000.0, 5, false)
+        Product("P1", "Laptop", "Electronics", "Electronics", 15000.0, 10, true),
+        Product("P2", "Mouse", "Electronics", "Electronics", 500.0, 10, true),
+        Product("P3", "Desk", "Furniture", "Furniture", 3000.0, 5, false)
     )
 ),
     ProductRepository {
