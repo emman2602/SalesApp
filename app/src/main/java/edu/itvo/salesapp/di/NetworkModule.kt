@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkModule {
 
     @Provides
-    fun provideBaseUrl(): String = "http://10.1.6.129:3000/"
+    fun provideBaseUrl(): String = "http://10.1.6.40:3000/"
 
     @Provides
     fun provideOkHttpClient(): OkHttpClient {

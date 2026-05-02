@@ -23,7 +23,7 @@ class FirestoreCustomerRepository @Inject constructor(
         firebaseDataSource.deleteCustomer(idCustomer)
     }
 
-    override fun getCustomers(): Flow<List<Customer>> {
+    override  fun getCustomers(): Flow<List<Customer>> {
         return firebaseDataSource.getCustomers()
     }
 }

@@ -24,7 +24,7 @@ class RoomCustomerRepository @Inject constructor(
         dao.deleteById(idCustomer)
     }
 
-    override  fun getCustomers(): Flow<List<Customer>> {
+    override fun getCustomers(): Flow<List<Customer>> {
         return dao.getCustomers()
             .map { list -> list.map { it.toDomain() } }
     }

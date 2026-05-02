@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.itvo.salesapp.domain.model.Customer
 import edu.itvo.salesapp.domain.usecase.customer.ListCustomerUseCase
+import edu.itvo.salesapp.presentation.product.list.ListProductUiState
 import kotlinx.coroutines.flow.SharingStarted
 
 import kotlinx.coroutines.flow.StateFlow

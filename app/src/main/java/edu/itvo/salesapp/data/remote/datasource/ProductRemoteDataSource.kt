@@ -2,6 +2,7 @@ package edu.itvo.salesapp.data.remote.datasource
 
 import edu.itvo.salesapp.data.remote.api.ProductApiService
 import edu.itvo.salesapp.data.remote.dto.ProductDTO
+import edu.itvo.salesapp.data.remote.dto.ProductResponse
 import javax.inject.Inject
 
 class ProductRemoteDataSource @Inject constructor(
@@ -16,7 +17,7 @@ class ProductRemoteDataSource @Inject constructor(
         return api.saveProduct(product)
     }
 
-    suspend fun getProducts(): List<ProductDTO> {
+    suspend fun getProducts(): ProductResponse {
         return api.getProducts()
     }
 }

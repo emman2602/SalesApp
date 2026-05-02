@@ -1,5 +1,6 @@
 package edu.itvo.salesapp.data.repository
 
+import android.util.Log
 import edu.itvo.salesapp.data.local.datasource.ProductLocalDataSource
 import edu.itvo.salesapp.data.mapper.toDomain
 import edu.itvo.salesapp.data.remote.datasource.ProductRemoteDataSource
@@ -9,9 +10,11 @@ import edu.itvo.salesapp.data.remote.mapper.ProductRemoteMapper.toDomain
 import edu.itvo.salesapp.data.remote.mapper.ProductRemoteMapper.toDto
 import edu.itvo.salesapp.data.remote.mapper.ProductRemoteMapper.toEntity
 import edu.itvo.salesapp.domain.model.Product
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -22,25 +25,25 @@ class ProductRepositoryImpl @Inject constructor(
 ) : ProductRepository {
 
     override fun getProducts(): Flow<List<Product>> = flow {
-
-        //--- Emitir datos locales inmediatamente (UI rápida)
-        emitAll(
-            local.getProducts()
-                .map { list -> list.map { it.toDomain() } }
-        )
-
-        //--- Intentar actualizar desde la API
+        // 1. Intentar actualizar desde la red
         try {
-            val remoteProducts = remote.getProducts()
+            val response = remote.getProducts()
 
-            //---  Guardar en Room (esto dispara automáticamente el Flow)
-            local.saveProducts(remoteProducts.map { it.toEntity()})
-
+            if (response.success) {
+                val remoteProducts = response.data // Extraemos la lista real
+                local.saveProducts(remoteProducts.map { it.toEntity() })
+            }
         } catch (e: Exception) {
-            e.printStackTrace()
-            //--- aquí se puede manejar error (log, retry, etc.)
+            Log.e("ProductRepository", "Error al sincronizar: ${e.message}")
         }
-    }
+
+        // 2. Conectar al flujo de la base de datos (Fuente de Verdad)
+        emitAll(
+            local.getProducts().map { entities ->
+                entities.map { it.toDomain() }
+            }
+        )
+    }.flowOn(Dispatchers.IO)
 
     override suspend fun findProductByCode(productCode: String): Product? {
 

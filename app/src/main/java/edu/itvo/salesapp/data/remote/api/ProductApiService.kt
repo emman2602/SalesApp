@@ -2,6 +2,7 @@ package edu.itvo.salesapp.data.remote.api
 
 
 import edu.itvo.salesapp.data.remote.dto.ProductDTO
+import edu.itvo.salesapp.data.remote.dto.ProductResponse
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -11,7 +12,7 @@ import retrofit2.http.Path
 
 interface ProductApiService {
     @GET("products")
-    suspend fun getProducts(): List<ProductDTO>
+    suspend fun getProducts(): ProductResponse
 
     @GET("products/{code}")
     suspend fun findProductByCode(

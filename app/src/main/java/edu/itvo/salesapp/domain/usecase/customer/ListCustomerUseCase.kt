@@ -10,7 +10,7 @@ import javax.inject.Inject
 class ListCustomerUseCase @Inject constructor(
     private val repository: CustomerRepository
 ){
-     operator fun invoke(): Flow<List<Customer>>{
+    operator fun invoke(): Flow<List<Customer>>{
         return repository.getCustomers()
     }
 }
